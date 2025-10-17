@@ -266,7 +266,7 @@ a:hover {
     Contact セクション - SNSボタン
    ======================================== */
 .button-x {
-    background-color: #222; /* Xブランドカラー（黒） */
+    background-color: #444; /* Xブランドカラー（黒） */
     color: #fff;
     padding: 0.75rem 1.5rem;
     border-radius: var(--radius-md);
@@ -274,7 +274,7 @@ a:hover {
     transition: background-color var(--transition-fast), transform var(--transition-fast);
 }
 .button-x:hover {
-    background-color: #444; /* ホバーでやや明るく */
+    background-color: #666; /* ホバーでやや明るく */
     transform: translateY(-2px);
 }
 /* アイコンのサイズ微調整 */
