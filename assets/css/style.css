@@ -137,6 +137,23 @@ body {
     transition: background-color var(--transition-base), color var(--transition-base);
 }
 
+p a {
+    color: var(--color-text-primary);
+    text-decoration: underline;
+    font-weight: 600;
+    transition: color var(--transition-fast);
+}
+p a:hover {
+    color: var(--color-secondary);
+}
+/* ダークモード対応 */
+.dark p a {
+    color: var(--color-text-primary); /* ダークモードでのリンク色 */
+}
+.dark p a:hover {
+    color: var(--color-text-secondary); /* ホバー色は調整 */
+}
+
 a {
     color: var(--color-primary);
     transition: color var(--transition-fast);
