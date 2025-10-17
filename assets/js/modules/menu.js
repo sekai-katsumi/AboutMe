@@ -8,17 +8,37 @@ export function initMenu() {
 
     if (!mobileMenuBtn || !mobileMenu) return;
 
-    // メニューの開閉
-    mobileMenuBtn.addEventListener('click', () => {
+    // メニュー開閉切替
+    function toggleMenu() {
         mobileMenu.classList.toggle('hidden');
-    });
+    }
 
-    // モバイルメニュー内のリンククリック時に閉じる
-    mobileMenu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
+    // メニューを閉じる
+    function closeMenu() {
         mobileMenu.classList.add('hidden');
-        });
+    }
+
+    // ハンバーガーボタンクリックで開閉
+    mobileMenuBtn.addEventListener('click', (e) => {
+        e.stopPropagation(); // 外クリック判定を防ぐ
+        toggleMenu();
     });
 
-  // テーマ切替ボタンで閉じる処理は theme.js 内で連携
+    // モバイルテーマ切替ボタンクリックでメニューを閉じる
+    mobileThemeToggle?.addEventListener('click', () => {
+        closeMenu();
+    });
+
+    // メニュー外クリックで閉じる
+    document.addEventListener('click', (e) => {
+        // メニュー自体またはボタンをクリックした場合は無視
+        if (!mobileMenu.contains(e.target) && e.target !== mobileMenuBtn) {
+            closeMenu();
+        }
+    });
+
+    // メニュー内クリック時は閉じないように
+    mobileMenu.addEventListener('click', (e) => {
+        e.stopPropagation();
+    });
 }
