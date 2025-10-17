@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Web Designer & Developer</title>
+
+    <!-- TailwindCSS（ユーティリティレイアウト用） -->
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Remixicon & ECharts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="./assets/image/favicon.ico" type="image/x-icon">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+
+    <script src="./assets/js/works-filter.js"></script>
+</head>
+<body>
+
+    <!-- ==========================
+        Header
+    =========================== -->
+    <header class="fixed top-0 left-0 right-0 backdrop-blur-md border-b z-[var(--z-header)] transition-all duration-300"
+            style="background-color: var(--color-bg); border-color: var(--color-border);">
+        <div class="max-w-[var(--container-max)] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between" style="height: var(--header-height);">
+                
+                <!-- ロゴ -->
+                <div class="flex-shrink-0">
+                    <a href="./index.html" class="flex gap-2 items-center">
+                        <img src="./assets/image/Katsumi_36×36.png" alt="サイトLogo" class="logo-img">
+                        <p>KATSUMI Sekai</p>
+                    </a>
+                </div>
+
+                <!-- ナビゲーション -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#works" class="transition-colors" style="color: var(--color-text-primary);">Works</a>
+                    <a href="#profile" class="transition-colors" style="color: var(--color-text-primary);">Profile</a>
+                    <a href="#contact" class="transition-colors" style="color: var(--color-text-primary);">Contact</a>
+                </nav>
+
+                <!-- テーマ切替 -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <button id="theme-toggle"
+                            class="w-10 h-10 flex items-center justify-center rounded-full transition-colors"
+                            style="background-color: var(--color-surface); color: var(--color-text-primary);"
+                            aria-label="テーマ切替">
+                        <i class="ri-sun-line ri-lg"></i>
+                    </button>
+                </div>
+
+                <!-- モバイルメニュー -->
+                <button id="mobile-menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center" aria-label="メニュー">
+                    <i class="ri-menu-line ri-lg"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- モバイルドロワー -->
+        <div id="mobile-menu" class="md:hidden hidden border-t" style="background-color: var(--color-bg); border-color: var(--color-border);">
+            <div class="px-4 py-4 space-y-4">
+                <a href="#works" style="color: var(--color-text-primary);">Works ― 制作物</a><br/>
+                <a href="#profile" style="color: var(--color-text-primary);">Profile ― プロフィール</a><br/>
+                <a href="#contact" style="color: var(--color-text-primary);">Contact ― 連絡先</a><br/>
+
+                <button id="mobile-theme-toggle" class="flex items-center space-x-2" style="color: var(--color-text-primary);" aria-label="テーマ切替">
+                    <i class="ri-sun-line"></i>
+                    <span>テーマ切替</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==========================
+        Hero Section
+    =========================== -->
+    <section class="hero-bg flex items-center justify-center relative" style="min-height: 60vh;">
+        <div class="absolute inset-0" style="background-color: var(--color-hero-overlay);"></div>
+        <div class="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 animate-fade-in-up">
+                Creative <br>& Development
+            </h1>
+            <br><br>
+            <p class="text-xl md:text-2xl mb-8 opacity-90 animate-fade-in-up">
+                企画・制作で、プロジェクトを成功に導く
+            </p>
+        </div>
+    </section>
+
+    <!-- ==========================
+        Works Section
+    =========================== -->
+    <section id="works" class="py-20" style="background-color: var(--color-bg);">
+        <div class="max-w-[var(--container-max)] mx-auto px-4 sm:px-6 lg:px-8">
+
+            <!-- セクション見出し -->
+            <div class="text-center mb-16 animate-fade-in-up">
+                <h2 class="text-4xl font-bold mb-4" style="color: var(--color-text-primary);">Works</h2>
+                <p class="text-xl mb-4" style="color: var(--color-text-secondary);"><br/>
+                    実際に制作したデザイン、開発 成果物を紹介します
+                </p>
+
+                <!-- フィルター -->
+                <div id="category-filters" class="flex flex-wrap justify-center gap-4 mt-8">
+                    <button id="design-filter" class="button" data-category="design">クリエイティブ制作</button>
+                    <button id="app-filter" class="button" data-category="app">開発・アプリ</button>
+                    <button id="planning-filter" class="button" data-category="planning">文書・企画</button>
+                    <button id="all-filter" class="button" data-category="all">全て</button>
+                </div>
+            </div>
+
+            <!-- Works グリッド -->
+            <div id="works-grid" class="grid md:grid-cols-3 gap-8 mb-12">
+
+                <!-- 各カード -->
+                <div class="group rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-all duration-300 animate-fade-in-up" style="background-color: var(--color-surface);" data-category="design">
+                    <a href="https://www.figma.com/proto/LY1xFnFF9tMo8ILBEYpoCr/Portfolio_C-R-Web-Academy_Katsumi?page-id=0%3A1&node-id=1-6&p=f&viewport=-877%2C631%2C0.31&t=ynp4KlkLGEfg1TQe-1&scaling=min-zoom&content-scaling=fixed">
+                        <div class="aspect-video flex items-center justify-center" style="background: linear-gradient(to bottom right, #8b5cf6, #6d28d9);">
+                            <i class="ri-palette-line text-white text-6xl"></i>
+                        </div>
+                        <div class="p-6">
+                            <span class="inline-block px-3 py-1 text-sm rounded-full mb-3"
+                                style="background-color: #ede9fe; color: #7c3aed;">クリエイティブ制作</span>
+                            <h3 class="text-xl font-semibold mb-2" style="color: var(--color-text-primary);">ポートフォリオ</h3>
+                            <p style="color: var(--color-text-secondary);">C&R Web Acedemy（Webデザイン&ディレクション講座）の授業内で作成したポートフォリオ資料（2025年）</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="group rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-all duration-300 animate-fade-in-up" style="background-color: var(--color-surface);" data-category="app">
+                    <a href="https://sekai-katsumi.github.io/JapanMap/">
+                        <div class="aspect-video flex items-center justify-center" style="background: linear-gradient(to bottom right, #f59e0b, #d97706);">
+                            <i class="ri-code-line text-white text-6xl"></i>
+                        </div>
+                        <div class="p-6">
+                            <span class="inline-block px-3 py-1 text-sm rounded-full mb-3"                             style="background-color: #fef3c7; color: #b45309;">開発・アプリ</span>
+                            <h3 class="text-xl font-semibold mb-2" style="color: var(--color-text-primary);">日本地図ページ（見本）</h3>
+                            <p style="color: var(--color-text-secondary);">制作協力しているサイトのTOPページに使用する日本地図のエリア選択機能のサンプルページ</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="group rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-all duration-300 animate-fade-in-up"
+                    style="background-color: var(--color-surface);" data-category="planning">
+                    <div class="aspect-video flex items-center justify-center" style="background: linear-gradient(to bottom right, #3b82f6, #2563eb);">
+                        <i class="ri-file-text-line text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <span class="inline-block px-3 py-1 text-sm rounded-full mb-3"
+                            style="background-color: #dbeafe; color: #2563eb;">文書・企画</span>
+                        <h3 class="text-xl font-semibold mb-2" style="color: var(--color-text-primary);">ＰＲ方針資料</h3>
+                        <p style="color: var(--color-text-secondary);">制作協力しているWebサイトのオーナーのビジネス目標をヒアリングして、総合的なＰＲ方針資料を作成しました</p>
+                    </div>
+                </div>
+
+                <!-- カード追加 END -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================
+        Profile Section
+    =========================== -->
+    <section id="profile" class="py-20" style="background-color: var(--color-surface);">
+        <div class="max-w-[var(--content-width-wide)] mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-bold mb-4 animate-fade-in-up" style="color: var(--color-text-primary);">Profile</h2>
+            <p class="text-lg mb-8 animate-fade-in-up" style="color: var(--color-text-secondary);">
+                読書・お絵描き好きのIT技術者。<br/>
+                余暇・趣味の時間もクリエイティブに色々な。<br/>
+                イラスト、動画編集、プログラミングと色々やってます。<br/>
+                元 創造社リカレントスクール生。<br/><br/>
+                企画・デザイン・開発と求められる職務に携わり、<br/>
+                ユーザー体験に優れたサービスを提供します。
+            </p>
+            <div id="skill-chart" class="skill-radar mx-auto animate-fade-in-up"></div>
+        </div>
+    </section>
+
+    <!-- ==========================
+        Contact Section
+    =========================== -->
+    <section id="contact" class="py-20" style="background-color: var(--color-bg);">
+        <div class="max-w-[var(--content-width-narrow)] mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-bold mb-4 animate-fade-in-up" style="color: var(--color-text-primary);">Contact</h2>
+            <p class="text-lg mb-8 animate-fade-in-up">
+                お問い合わせや仕事のご依頼はこちらから
+            </p>
+        </div>
+
+        <div class="flex justify-center gap-4">
+            <!-- X（旧Twitter）リンクボタン -->
+            <a href="https://x.com/KatsumiSekai" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="button button-x flex items-center gap-2">
+            <i class="bi bi-twitter-x"></i>
+            X（@KatsumiSekai）
+            </a>
+        </div>
+    </section>
+
+    <!-- ==========================
+        Footer
+    =========================== -->
+    <footer class="py-8 mt-12 text-center"
+            style="background-color: var(--color-surface); color: var(--color-text-secondary);">
+        <div class="max-w-[var(--container-max)] mx-auto px-4 sm:px-6 lg:px-8">
+            &copy; 2025 Portfolio. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- ==========================
+        Scripts
+    =========================== -->
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/getXposts.js"></script>
+</body>
+</html>

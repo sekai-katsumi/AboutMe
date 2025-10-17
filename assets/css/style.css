@@ -1,0 +1,266 @@
+/* ========================================
+	デザイントークン
+   ======================================== */
+:root {
+    /* =========== 文字スケール ========== */
+    /* Font families */
+    --font-sans: 'Noto Sans JP', sans-serif;
+    --font-mono: 'Roboto Mono', monospace;
+
+    /* Font sizes */
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 1.875rem;
+    --font-size-4xl: 2.25rem;
+    --font-size-5xl: 3rem;
+
+    /* Line height */
+    --line-height-tight: 1.2;
+    --line-height-normal: 1.5;
+    --line-height-loose: 1.75;
+
+    /* Letter spacing */
+    --letter-spacing-normal: 0;
+    --letter-spacing-wide: 0.05em;
+
+    /* =========== スペーシングスケール ========== */
+    --space-2xs: 0.25rem;
+    --space-xs: 0.5rem;
+    --space-sm: 0.75rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    --space-2xl: 3rem;
+    --space-3xl: 4rem;
+
+    /* =========== シャドウ・境界線・角丸 ========== */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 16px;
+    --radius-round: 9999px;
+
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.15);
+    --shadow-inset: inset 0 2px 4px rgba(0, 0, 0, 0.06);
+
+    /* =========== モーション ========== */
+    /* アニメーション汎用 */
+    --anim-fade-in: fade-in var(--transition-base);
+    --anim-scale-up: scale-up var(--transition-base);
+
+    /* トランジション汎用 */
+    --transition-fast: 150ms ease-in-out;
+    --transition-base: 300ms ease-in-out;
+    --transition-slow: 600ms ease;
+    --easing-standard: cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* =========== レイアウト・コンテナ幅 ========== */
+    --container-max: 1280px;
+    --container-padding: 1.5rem;
+    --content-width-narrow: 600px;
+    --content-width-wide: 1000px;
+
+    /* =========== Z-index階層 ========== */
+    --z-base: 1;
+    --z-header: 50;
+    --z-modal: 100;
+    --z-overlay: 200;
+    --z-tooltip: 300;
+
+    /* =========== Grid・ブレークポイント ========== */
+    --breakpoint-sm: 640px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 1024px;
+    --breakpoint-xl: 1280px;
+
+    /* =========== ヘッダーやフッターなど固定要素 ========== */
+    --header-height: 64px;
+    --footer-height: 80px;
+
+    /* =========== カラーシステム ========== */
+    /* Brand Core */
+    --color-primary: #3b82f6;
+    --color-primary-hover: #2563eb;
+    --color-secondary: #8b5cf6;
+    --color-accent: #f59e0b;
+
+    /* Neutral */
+    --color-bg: #ffffff;
+    --color-surface: #f9fafb;
+    --color-border: #e5e7eb;
+    --color-overlay: rgba(0, 0, 0, 0.3);
+
+    /* Text hierarchy */
+    --color-text-primary: #111827;
+    --color-text-secondary: #4b5563;
+    --color-text-muted: #9ca3af;
+    --color-text-invert: #ffffff;
+
+    /* Status / Feedback */
+    --color-success: #10b981;
+    --color-warning: #f59e0b;
+    --color-error: #ef4444;
+    --color-info: #3b82f6;
+
+    /* 背景トーン */
+    --color-hero-overlay: rgba(0, 0, 0, 0.3);
+    }
+
+.dark {
+    --color-bg: #111827;
+    --color-surface: #1f2937;
+    --color-border: #374151;
+    --color-overlay: rgba(0, 0, 0, 0.4);
+
+    --color-text-primary: #f9fafb;
+    --color-text-secondary: #d1d5db;
+    --color-text-muted: #9ca3af;
+
+    /* =========== シャドウ ========== */
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.6);
+}
+
+
+/* ========================================
+	共通スタイル
+   ======================================== */
+body {
+    font-family: var(--font-sans);
+    background-color: var(--color-bg);
+    color: var(--color-text-primary);
+    transition: background-color var(--transition-base), color var(--transition-base);
+}
+
+a {
+    color: var(--color-primary);
+    transition: color var(--transition-fast);
+}
+a:hover {
+    color: var(--color-secondary);
+}
+
+
+/* ========================================
+	再利用コンポーネント（ボタン/カードなど）
+   ======================================== */
+.button {
+    background-color: var(--color-primary);
+    color: var(--color-text-invert);
+    padding: 0.75rem 1.5rem;
+    transition: background-color var(--transition-fast);
+    border-radius: var(--radius-md);
+
+    --font-weight-normal: 400;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+}
+.button:hover {
+    background-color: var(--color-primary-hover);
+    color: var(--color-text-invert);
+    border-radius: var(--radius-md);
+}
+
+
+/* ========================================
+	ヒーローセクション
+   ======================================== */
+.hero-bg {
+    position: relative;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
+                    url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1600&q=80');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* ========================================
+	アニメーション、チャート
+   ======================================== */
+/* Animations */
+.animate-fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+}
+.animate-fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Skill Chart */
+.skill-radar {
+    width: 100%;
+    max-width: 500px;
+    height: 400px;
+}
+
+
+/* ========================================
+    TOPページ：Works > カテゴリボタン色指定
+   ======================================== */
+
+/* 基本ボタン（リセット用） */
+#category-filters .button {
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+/* 各カテゴリごとの色指定 */
+#category-filters .button {
+    color: #fff;
+    border-radius: var(--radius-md);
+}
+#category-filters .button[data-category="all"] {
+    background-color: #9ca3af; /* 灰色 */
+}
+#category-filters .button[data-category="planning"] {
+    background-color: #3b82f6; /* 水色（primary） */
+}
+#category-filters .button[data-category="design"] {
+    background-color: #8b5cf6; /* 紫 */
+}
+#category-filters .button[data-category="app"] {
+    background-color: #f59e0b; /* オレンジ */
+}
+
+/* アクティブ時（選択中のボタン） */
+#category-filters .button.active {
+    box-shadow: 0 0 0 3px rgb(201, 201, 201); /* 強調 */
+    filter: brightness(1.05);
+}
+
+/* ホバー時（明るくする） */
+#category-filters .button[data-category="all"]:hover,
+#category-filters .button[data-category="planning"]:hover,
+#category-filters .button[data-category="design"]:hover,
+#category-filters .button[data-category="development"]:hover {
+    opacity: 0.8;
+}
+
+/* ========================================
+    Contact セクション - SNSボタン
+   ======================================== */
+.button-x {
+    background-color: #222; /* Xブランドカラー（黒） */
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+.button-x:hover {
+    background-color: #444; /* ホバーでやや明るく */
+    transform: translateY(-2px);
+}
+/* アイコンのサイズ微調整 */
+.button-x .bi {
+    font-size: 1.2rem;
+}
