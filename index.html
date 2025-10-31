@@ -233,21 +233,37 @@
     <!-- ==========================
         Profile Section
     =========================== -->
-    <section id="profile" class="py-20" style="background-color: var(--color-surface);">
-        <div class="max-w-[var(--content-width-wide)] mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-4xl font-bold mb-4 animate-fade-in-up" style="color: var(--color-text-primary);">Profile</h2>
-            <br />
-            <p class="text-lg mb-8 animate-fade-in-up" style="color: var(--color-text-secondary);">
-                読書やお絵描き好きのIT技術者。<br />
-                イラスト･動画､プログラミングと色々作ってます。<br />
-                元 <a href="https://sozosha-rs.jp/" target="_blank">創造社リカレントスクール</a>生。<br />
-                <a href="https://www.cr-ca.com/lp/web-academy/" target="_blank">C&R Web Academy </a>第1期 修了生。<br /><br />
 
-                企画・制作・進行の全工程で、<br />
-                お客様への価値提供 最大化を図り、<br />
-                埋もれたサービスに光を灯します。
-            </p>
-            <div id="skill-chart" class="skill-radar mx-auto animate-fade-in-up"></div>
+
+    <section id="profile" class="py-20" style="background-color: var(--color-surface);">
+        <div class="max-w-[var(--content-width-wide)] mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl text-center font-bold mb-4 animate-fade-in-up" style="color: var(--color-text-primary);">Profile</h2>
+            <br />
+
+            <div class="max-w-5xl mx-auto p-6 grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+                <!-- 右：肖像画像 -->
+                <div class="flex justify-center md:justify-end">
+                    <img
+                    src="assets/image/Katsumi_512×512.png"
+                    alt="Profile portrait"
+                    class="w-64 h-64 object-cover rounded-2xl"
+                    />
+                </div>
+
+                <!-- 左：自己紹介カード -->
+                <div class="md:col-span-2 bg-white shadow-md rounded-2xl p-6 space-y-4">
+                    <h2 class="text-2xl font-bold text-gray-800">About Me</h2>
+                    <p class="text-gray-600 leading-relaxed">
+                        読書やお絵描き好きのIT技術者。イラスト･動画､プログラミングと色々作ってます。<br />
+                        元 <a href="https://sozosha-rs.jp/" target="_blank">創造社リカレントスクール</a>生。
+                        <a href="https://www.cr-ca.com/lp/web-academy/" target="_blank">C&R Web Academy </a>第1期 修了生。<br /><br />
+
+                        企画・制作・進行の全工程で、お客様への価値提供 最大化を図り、埋もれたサービスに光を灯します。
+                    </p>
+                </div>
+
+            </div>
+
         </div>
     </section>
 
