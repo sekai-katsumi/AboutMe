@@ -91,6 +91,7 @@
 
     /* Neutral */
     --color-bg: #ffffff;
+    --color-card: #ffffff;
     --color-surface: #f9fafb;
     --color-border: #e5e7eb;
     --color-overlay: rgba(0, 0, 0, 0.3);
@@ -113,6 +114,7 @@
 
 .dark {
     --color-bg: #111827;
+    --color-card: #111827;
     --color-surface: #1f2937;
     --color-border: #374151;
     --color-overlay: rgba(0, 0, 0, 0.4);
