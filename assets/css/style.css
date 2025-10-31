@@ -95,6 +95,7 @@
     --color-surface: #f9fafb;
     --color-border: #e5e7eb;
     --color-overlay: rgba(0, 0, 0, 0.3);
+    --color-button: #222222;
 
     /* Text hierarchy */
     --color-text-primary: #111827;
@@ -118,6 +119,7 @@
     --color-surface: #1f2937;
     --color-border: #374151;
     --color-overlay: rgba(0, 0, 0, 0.4);
+    --color-button: #000000;
 
     --color-text-primary: #f9fafb;
     --color-text-secondary: #d1d5db;

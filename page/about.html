@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <!-- ==========================
+        Meta / 基本情報
+    =========================== -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KATSUMI Sekai | 自己紹介</title>
+    <link rel="stylesheet" href="../assets/css/style.css" />
+
+    <!-- ==========================
+        TailwindCSS / フォント / アイコン
+    =========================== -->
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700&display=swap"
+        rel="stylesheet"
+    />
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
+    />
+
+    <!-- ==========================
+        外部ライブラリ
+    =========================== -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+
+    <!-- ==========================
+        Favicon / Custom CSS
+    =========================== -->
+    <link rel="shortcut icon" href="../assets/image/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    </head>
+
+<body style="background-color: var(--color-bg); color: var(--color-text); font-family: var(--font-sans);">
+    <!-- ==========================
+        Header
+    =========================== -->
+    <header
+        class="fixed top-0 left-0 right-0 backdrop-blur-md border-b z-[var(--z-header)] transition-all duration-300"
+        style="background-color: var(--color-bg); border-color: var(--color-border);"
+    >
+        <div class="max-w-[var(--container-max)] mx-auto px-4 sm:px-6 lg:px-8">
+            <div
+                class="flex items-center justify-between"
+                style="height: var(--header-height);"
+            >
+                <!-- ロゴ -->
+                <div class="flex-shrink-0">
+                    <a href="../index.html" class="flex gap-2 items-center">
+                        <img
+                            src="../assets/image/Katsumi_36×36.png"
+                            alt="サイトLogo"
+                            class="logo-img"
+                        />
+                        <p>KATSUMI Sekai</p>
+                    </a>
+                </div>
+
+                <!-- ナビゲーション -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#works" class="smooth-scroll transition-colors" style="color: var(--color-text-primary);">Works</a>
+                    <a href="#profile" class="smooth-scroll transition-colors" style="color: var(--color-text-primary);">Profile</a>
+                    <a href="#contact" class="smooth-scroll transition-colors" style="color: var(--color-text-primary);">Contact</a>
+                </nav>
+
+                <!-- テーマ切替 -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <button
+                        id="theme-toggle"
+                        class="w-10 h-10 flex items-center justify-center rounded-full transition-colors"
+                        style="background-color: var(--color-surface); color: var(--color-text-primary);"
+                        aria-label="テーマ切替"
+                    >
+                        <i class="ri-sun-line ri-lg"></i>
+                    </button>
+                </div>
+
+                <!-- モバイルメニュー -->
+                <button
+                    id="mobile-menu-btn"
+                    class="md:hidden w-10 h-10 flex items-center justify-center"
+                    aria-label="メニュー"
+                >
+                    <i class="ri-menu-line ri-lg"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- モバイルドロワー -->
+        <div
+            id="mobile-menu"
+            class="md:hidden hidden border-t"
+            style="background-color: var(--color-bg); border-color: var(--color-border);"
+        >
+            <div class="px-4 py-4 space-y-4">
+                <a href="#works" class="smooth-scroll" style="color: var(--color-text-primary);">Works ― 制作物</a><br />
+                <a href="#profile" class="smooth-scroll" style="color: var(--color-text-primary);">Profile ― プロフィール</a><br />
+                <a href="#contact" class="smooth-scroll" style="color: var(--color-text-primary);">Contact ― 連絡先</a><br />
+
+                <button
+                    id="mobile-theme-toggle"
+                    class="flex items-center space-x-2"
+                    style="color: var(--color-text-primary);"
+                    aria-label="テーマ切替"
+                >
+                    <i class="ri-sun-line"></i>
+                    <span>テーマ切替</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==========================
+        Hero Section
+    =========================== -->
+    <section
+        class="hero-bg flex items-center justify-center relative"
+        style="min-height: calc(35vh - var(--header-height)); padding-top: var(--header-height);"
+    >
+        <div class="absolute inset-0" style="background-color: var(--color-hero-overlay);"></div>
+        <div class="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
+            <h1 class="text-3xl font-bold mb-2">About Me</h1>
+            <p>自己紹介/略歴</p>
+        </div>
+    </section>
+
+    <!-- =============================
+        Main Section
+    ============================== -->
+    <main class="max-w-5xl mx-auto" style="padding: var(--space-xl); display: grid; gap: var(--space-xl)">
+
+        <!-- プロフィール本体 -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+
+        <!-- 左：自己紹介カード -->
+        <div class="md:col-span-2"
+            style="
+            background-color: var(--color-card);
+            color: var(--color-text-primary);
+            box-shadow: var(--shadow-md);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            transition: background-color var(--transition-base), color var(--transition-base);
+            ">
+            <h3 style="font-size: var(--font-size-xl); font-weight: 600; margin-bottom: var(--space-sm);">自己紹介</h3>
+            <p style="color: var(--color-text-secondary); line-height: var(--line-height-loose);">
+            Web制作会社にて、Webディレクターとして開発･運用業務に従事しています。  
+            企業内の専門人材ネットワークと協力企業さんとの連携を活かし、  
+            越境EC・出版などの分野での課題解決を推進中です。  
+            <br><br>
+            テクノロジーを現場実装に結びつける「翻訳者」として、  
+            お客さまの真のビジネス価値の提供を支援しています。
+            </p>
+
+            <div style="display: flex; flex-wrap: wrap; gap: var(--space-sm); padding-top: var(--space-md);">
+            <span style="padding: 0.4rem 0.75rem; background-color: var(--color-surface); color: var(--color-primary); border-radius: var(--radius-round); font-size: var(--font-size-sm);">IT Consulting</span>
+            <span style="padding: 0.4rem 0.75rem; background-color: var(--color-surface); color: var(--color-success); border-radius: var(--radius-round); font-size: var(--font-size-sm);">Marketing & Data</span>
+            <span style="padding: 0.4rem 0.75rem; background-color: var(--color-surface); color: var(--color-secondary); border-radius: var(--radius-round); font-size: var(--font-size-sm);">Business Strategy</span>
+            </div>
+        </div>
+
+        <!-- 右：肖像画像 -->
+        <div class="flex justify-center md:justify-end">
+            <img
+            src="../assets/image/Katsumi_512×512.png"
+            alt="Profile portrait"
+            style="width: 16rem; height: 16rem; object-fit: cover;"
+            />
+        </div>
+        </section>
+
+        <!-- 略歴セクション -->
+        <section
+        style="
+            background-color: var(--color-card);
+            box-shadow: var(--shadow-sm);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            color: var(--color-text-primary);
+            transition: background-color var(--transition-base), color var(--transition-base);
+        ">
+        <h3 style="font-size: var(--font-size-xl); font-weight: 600; margin-bottom: var(--space-md);">略歴</h3>
+        <ul style="list-style: none; padding: 0; margin: 0; color: var(--color-text-secondary); line-height: var(--line-height-loose);">
+            <li>2017.03　大阪大学大学院 人間科学研究科 卒業</li>
+            <li>2017.04　システム開発会社（現 東証スタンダード上場）に入社</li>
+            <li>2017.07　研修を経て、金融・生損保業界の業務基幹システム（汎用機）の開発･保守業務を行う</li>
+            <li>2022.06　広島オフィス開設に伴い転居。ECサイトの保守･開発業務（フロント系）を行う</li>
+            <li>2025.01　前職を退職し、Web系ディレクション・スキルを習得するためWeb講座・公共職業訓練を受講</li>
+            <li>2025.12　Web制作会社に入社し、CX（カスタマーエクスペリエンス）部門のWebディレクターに転身</li>
+        </ul>
+        </section>
+
+        <!-- トップページに戻るボタン -->
+        <div class="text-center my-8">
+        <a
+            href="../index.html"
+            class="button"
+        >
+            トップに戻る
+        </a>
+        </div>
+
+    </main>
+
+    <!-- ==========================
+        Footer
+    =========================== -->
+    <footer class="py-8 mt-12 text-center" style="background-color: var(--color-surface); color: var(--color-text-secondary);">
+        <div class="max-w-[var(--container-max)] mx-auto px-4 sm:px-6 lg:px-8">
+            &copy; 2025 KATSUMI Sekai. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- ==========================
+        JavaScripts
+    =========================== -->
+    <script type="module" src="../assets/js/main.js"></script>
+</body>
+</html>

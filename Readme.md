@@ -20,22 +20,26 @@
 ## ディレクトリ構成
 
 ```plaintext
-assets/
-├── css/
-│   └── style.css
-├── image/
-│   ├── favicon.ico
-│   └── 各種画像
-└── js/
-    ├── main.js               # 初期化（エントリポイント）
-    ├── getXposts.js          # X投稿取得用スクリプト
-    └── modules/
-        ├── menu.js           # ハンバーガーメニュー関連
-        ├── theme.js          # カラーモード・Twitter埋め込み・チャート同期
-        ├── animations.js     # スクロールアニメーション
-        ├── chart.js          # EChartsレーダーチャート
-        ├── filter.js         # Worksフィルタ機能
-        └── smoothScroll.js   # スムーズスクロール
+root/
+├── index.html                    # TOPページ
+├── page/
+│   └── about.html                # 自己紹介ページ
+└── assets/
+    ├── css/
+    │   └── style.css
+    ├── image/
+    │   ├── favicon.ico
+    │   └── 各種画像
+    └── js/
+        ├── main.js               # 初期化（エントリポイント）
+        ├── getXposts.js          # X投稿取得用スクリプト
+        └── modules/
+            ├── menu.js           # ハンバーガーメニュー関連
+            ├── theme.js          # カラーモード・Twitter埋め込み・チャート同期
+            ├── animations.js     # スクロールアニメーション
+            ├── chart.js          # EChartsレーダーチャート
+            ├── filter.js         # Worksフィルタ機能
+            └── smoothScroll.js   # スムーズスクロール
 ```
 
 ## 使用技術
